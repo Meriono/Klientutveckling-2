@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Form</title>
+  </head>
+  <body class="container">
+    <h3 id="pageTitle">Beställnings formulär</h3>
+    <div>
+      <div class="alert alert-danger">
+        <div class="grid">
+          <ul class="list-inline">
+            <li class="list-inline-item col-3"><h4>PRODUKT</h4></li>
+            <li class="list-inline-item col-2"><p>antal</p></li>
+            <li class="list-inline-item col-2"><p>pris</p></li>
+          </ul>
+        </div>
+
+        <div class="grid">
+          <ul class="list-inline">
+            <li class="list-inline-item col-3"><h4>PRODUKT</h4></li>
+            <li class="list-inline-item col-2"><p>antal</p></li>
+            <li class="list-inline-item col-2"><p>pris</p></li>
+          </ul>
+        </div>
+
+        <div class="grid">
+          <ul class="list-inline">
+            <li class="list-inline-item col-3"><h4>PRODUKT</h4></li>
+            <li class="list-inline-item col-2"><p>antal</p></li>
+            <li class="list-inline-item col-2"><p>pris</p></li>
+          </ul>
+        </div>
+
+        <h4 class="text-end">Totalsumma</h4>
+      </div>
+    </div>
+
+    <div class="alert alert-success">
+      <h3 class="text-center">Kontaktuppgifter</h3>
+
+      <form class="row g-3 needs-validation" id="form" method="post" novalidate>
+        <div class="col-md-2">
+          <label for="inputFirstName" class="form-label">Förnamn</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputFirstNAme"
+            required
+          />
+          <div class="invalid-feedback">Ange ditt förnamn.</div>
+        </div>
+        <div class="col-md-3">
+          <label for="inputLastName" class="form-label">Efternamn</label>
+          <input type="text" class="form-control" id="inputLastName" required />
+          <div class="invalid-feedback">Ange ditt efternamn.</div>
+        </div>
+        <div class="col-md-3">
+          <label for="inputPhoneNumber" class="form-label">Telefon</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputPhoneNumber"
+            required
+          />
+          <div class="invalid-feedback">Ange ditt telefonnummer.</div>
+        </div>
+        <div class="col-4">
+          <label for="inputAddress" class="form-label">E-post</label>
+          <input type="email" class="form-control" id="inputAddress" required />
+          <div class="invalid-feedback">Ange din e-post.</div>
+        </div>
+        <div class="col-6">
+          <label for="inputAddress2" class="form-label">Leveransadress</label>
+          <input type="text" class="form-control" id="inputAddress2" required />
+          <div class="invalid-feedback">Ange din leveransadress.</div>
+        </div>
+        <div class="col-md-3">
+          <label for="inputCity" class="form-label">Ort</label>
+          <input type="text" class="form-control" id="inputCity" required />
+          <div class="invalid-feedback">Ange din ort.</div>
+        </div>
+        <div class="col-md-2">
+          <label for="inputZip" class="form-label">Portnummer</label>
+          <input type="text" class="form-control" id="inputZip" required />
+          <div class="invalid-feedback">Ange ditt postnummer.</div>
+        </div>
+        <br />
+        <div class="mx-auto text-center">
+          <button class="btn btn-success" type="submit">Beställ</button>
+        </div>
+      </form>
+    </div>
+    <script src="validation.js"></script>
+  </body>
+</html>
