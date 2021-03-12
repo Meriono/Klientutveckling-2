@@ -20,3 +20,10 @@
     );
   });
 })();
+
+function testing() {
+  // Open the conformation modal when the button "butt" is clicked on
+  var myModalEl = document.getElementById("staticBackdrop");
+  var modal = new bootstrap.Modal(myModalEl); // Returns a Bootstrap modal instance
+  modal.show();
+}
