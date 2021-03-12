@@ -13,6 +13,13 @@
         if (!form.checkValidity()) {
           event.preventDefault();
           event.stopPropagation();
+        } else {
+          // Open modal after success validation, reset the form and noValidate so the form appears emtpy and no errors
+          openModal();
+          event.preventDefault();
+          event.stopPropagation();
+          form.reset();
+          form.noValidate();
         }
         form.classList.add("was-validated");
       },
@@ -21,8 +28,7 @@
   });
 })();
 
-function testing() {
-  // Open the conformation modal when the button "butt" is clicked on
+function openModal() {
   var myModalEl = document.getElementById("staticBackdrop");
   var modal = new bootstrap.Modal(myModalEl); // Returns a Bootstrap modal instance
   modal.show();
