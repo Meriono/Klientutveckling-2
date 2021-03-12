@@ -16,9 +16,9 @@
         } else {
           // Open modal after success validation, reset the form and noValidate so the form appears emtpy and no errors
           openModal();
+          form.reset();
           event.preventDefault();
           event.stopPropagation();
-          form.reset();
           form.noValidate();
         }
         form.classList.add("was-validated");
