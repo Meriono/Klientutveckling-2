@@ -18,28 +18,42 @@
         <div class="grid">
           <ul class="list-inline">
             <li class="list-inline-item col-3"><h4>PRODUKT</h4></li>
-            <li class="list-inline-item col-2"><p>antal</p></li>
-            <li class="list-inline-item col-2"><p>pris</p></li>
+            <li class="list-inline-item col-2"><h4>ANTAL</h4></li>
+            <li class="list-inline-item col-2"><h4>PRIS</h4></li>
           </ul>
         </div>
 
         <div class="grid">
           <ul class="list-inline">
-            <li class="list-inline-item col-3"><h4>PRODUKT</h4></li>
-            <li class="list-inline-item col-2"><p>antal</p></li>
-            <li class="list-inline-item col-2"><p>pris</p></li>
+            <li class="list-inline-item col-3"><p>PRODUKT</p></li>
+            <li class="list-inline-item col-2">
+              <input type="number" min="1" style="width: 30%" />
+            </li>
+            <li class="list-inline-item col-2"><p>PRIS kr</p></li>
           </ul>
         </div>
 
         <div class="grid">
           <ul class="list-inline">
-            <li class="list-inline-item col-3"><h4>PRODUKT</h4></li>
-            <li class="list-inline-item col-2"><p>antal</p></li>
-            <li class="list-inline-item col-2"><p>pris</p></li>
+            <li class="list-inline-item col-3"><p>PRODUKT</p></li>
+            <li class="list-inline-item col-2">
+              <input type="number" min="1" style="width: 30%" />
+            </li>
+            <li class="list-inline-item col-2"><p>PRIS kr</p></li>
           </ul>
         </div>
 
-        <h4 class="text-end">Totalsumma</h4>
+        <div class="grid">
+          <ul class="list-inline">
+            <li class="list-inline-item col-3"><p>PRODUKT</p></li>
+            <li class="list-inline-item col-2">
+              <input type="number" min="1" style="width: 30%" />
+            </li>
+            <li class="list-inline-item col-2"><p>PRIS kr</p></li>
+          </ul>
+        </div>
+        <h4 class="text-end">Totalsumma: SUMMA kr</h4>
+        <button class="btn btn-danger">Lägg till en ny produkt</button>
       </div>
     </div>
 
@@ -93,8 +107,8 @@
           <div class="invalid-feedback">Ange ditt postnummer.</div>
         </div>
         <br />
-        <div class="mx-auto text-center">
-          <button class="btn btn-success" type="submit">Beställ</button>
+        <div class="mx-auto">
+          <button class="btn btn-success" type="submit">Beställ order</button>
         </div>
       </form>
     </div>
