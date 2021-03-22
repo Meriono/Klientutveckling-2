@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  console.log("ready!");
   load();
 });
 
@@ -50,20 +49,23 @@ function load() {
 
       if (columns % 3 === 2) {
         output += `</div>`;
-
-        console.log("ran at: " + columns);
       }
       columns++;
     });
     document.getElementById("productsView").innerHTML = output;
+    addlyssnare();
   }
 }
 
-document.getElementById("btnAdd").addEventListener("click", addProduct);
+function addlyssnare() {
+  document.querySelectorAll(".btnAdd").forEach((item) => {
+    item.addEventListener("click", addProduct);
+  });
+}
+
 let amountOfProducts = 0;
 
 function addProduct() {
-  console.log("Klick");
   amountOfProducts++;
   document.getElementById("orderProducts").innerHTML = `
     <h2 class="text-center text">Antal varor du vill beställa: ${amountOfProducts}</h2>
