@@ -69,5 +69,8 @@ function addProduct() {
   amountOfProducts++;
   document.getElementById("orderProducts").innerHTML = `
     <h2 class="text-center text">Antal varor du vill beställa: ${amountOfProducts}</h2>
+    <div class="mx-auto text-center">
+    <a href="form.html"><button class="btnOrder btn btn-danger text-center">Se beställning</button></a>
+    </div>
       `;
 }

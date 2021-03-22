@@ -14,3 +14,14 @@
 .text{
     color: #f8d7da;
 }
+
+.btnOrder{
+    margin-bottom: 5px;
+}
+
+#orderProducts{
+    margin-bottom: 10px;
+    border-radius: 5px;
+    height: auto;
+    border: 1px solid #3f3f3f;
+}
