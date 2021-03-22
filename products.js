@@ -1,6 +1,7 @@
 $(document).ready(function () {
   load();
 });
+let enProduktArray = [];
 
 function load() {
   const xhr = new XMLHttpRequest();
@@ -17,7 +18,19 @@ function load() {
   function render(json) {
     let output = "";
     let columns = 0;
+
     json.forEach((product) => {
+      const enProduktTillArray = {
+        id: product.id,
+        title: product.title,
+        description: product.description,
+        image: product.image,
+        price: product.price,
+        category: product.category,
+        amount: 1,
+      };
+      enProduktArray.push(enProduktTillArray);
+
       if (columns % 3 === 0) {
         output += `
             <div class="row gap-2">
@@ -42,7 +55,7 @@ function load() {
             <p class="fw-bold text-end">${product.price} kr</p>
 
             <div class="mx-auto text-center">
-                <button class="btnAdd btn btn-danger">Lägg till</button>
+                <button class="btnAdd btn btn-danger" id="${product.id}">Lägg till</button>
             </div>
         </div>
         `;
@@ -54,6 +67,7 @@ function load() {
     });
     document.getElementById("productsView").innerHTML = output;
     addlyssnare();
+    localStorage.setItem("Produkter", JSON.stringify(enProduktArray));
   }
 }
 
@@ -73,4 +87,21 @@ function addProduct() {
     <a href="form.html"><button class="btnOrder btn btn-danger text-center">Se beställning</button></a>
     </div>
       `;
+  console.log(this.id);
+  enProduktArray.forEach((element) => {
+    if (element.id == this.id) {
+      console.log(element.title + element.amount);
+      element.amount++;
+    }
+  });
 }
+
+/*
+id
+title
+description
+image
+price
+category
+amount
+*/

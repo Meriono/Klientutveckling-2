@@ -20,6 +20,7 @@
           event.preventDefault();
           event.stopPropagation();
           form.noValidate();
+          localStorage.clear();
         }
         form.classList.add("was-validated");
       },
