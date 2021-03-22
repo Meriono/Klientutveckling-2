@@ -11,69 +11,43 @@
     <link rel="stylesheet" href="style.css" />
     <title>Webshop</title>
   </head>
-  <body class="container">
-    <h3 id="pageTitle">This is a webshop</h3>
-    <div class="row gap-2">
-      <!-- En produkt-->
-      <div class="col-3 alert alert-danger">
-        <h2 class="text-center">Title</h2>
-        <div class="mx-auto text-center">
-          <img
-            src="https://picsum.photos/200"
-            alt=""
-            class="border border-2 border-danger rounded-3"
-          />
-        </div>
-        <br />
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi
-          totam pariatur soluta eum mollitia ad,
-        </p>
-        <p class="fw-bold text-end">PRIS</p>
-        <div class="mx-auto text-center">
-          <button class="btn btn-danger">Köp eller lägg till</button>
-        </div>
+  <body>
+    <div class="container">
+      <h3 class="pageTitle">This is a webshop</h3>
+      <button id="btnAdd">Klicka</button>
+      <div class="bg-secondary mx-auto" id="orderProducts">
       </div>
-      <!-- En produkt -->
-      <div class="col-3 alert alert-danger">
-        <h2 class="text-center">Title</h2>
-        <div class="mx-auto text-center">
-          <img
-            src="https://picsum.photos/200"
-            alt=""
-            class="border border-2 border-danger rounded-3"
-          />
-        </div>
-        <br />
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi
-          totam pariatur soluta eum mollitia ad,
-        </p>
-        <p class="fw-bold text-end">PRIS</p>
-        <div class="mx-auto text-center">
-          <button class="btn btn-danger">Köp eller lägg till</button>
-        </div>
-      </div>
-      <!-- En produkt-->
-      <div class="col-3 alert alert-danger">
-        <h2 class="text-center">Title</h2>
-        <div class="mx-auto text-center">
-          <img
-            src="https://picsum.photos/200"
-            alt=""
-            class="border border-2 border-danger rounded-3"
-          />
-        </div>
-        <br />
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi
-          totam pariatur soluta eum mollitia ad,
-        </p>
-        <p class="fw-bold text-end">PRIS</p>
-        <div class="mx-auto text-center">
-          <button class="btn btn-danger">Köp eller lägg till</button>
-        </div>
-      </div>
+      <div id="productsView"></div>
     </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="products.js"></script>
   </body>
 </html>
+
+<!-- 
+        <div class="col-3 alert alert-danger">
+        <h2 class="text-center">Title</h2>
+        <div class="mx-auto text-center">
+          <img
+            src="https://picsum.photos/200"
+            alt=""
+            class="border border-2 border-danger rounded-3"
+          />
+        </div>
+        <br />
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi
+          totam pariatur soluta eum mollitia ad,
+        </p>
+        <p class="fw-bold text-end">PRIS</p>
+        <div class="mx-auto text-center">
+          <button class="btn btn-danger">Köp eller lägg till</button>
+        </div>
+      </div>
+-->
