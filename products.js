@@ -55,7 +55,7 @@ function load() {
             <p class="fw-bold text-end">${product.price} kr</p>
 
             <div class="mx-auto text-center">
-                <button class="btnAdd btn btn-danger" id="${product.id}">Lägg till</button>
+                <button class="btnAdd btn btn-danger" id="a${product.id}">Lägg till</button>
             </div>
         </div>
         `;
@@ -89,13 +89,14 @@ function addProduct() {
       `;
 
   enProduktArray.forEach((element) => {
-    if (element.id == this.id) {
+      var knappID = this.id.substring(1);
+    if (element.id == knappID) {
       let getMyArray = JSON.parse(localStorage.getItem("Produkter"));
 
-      if (enProduktArray[this.id - 1].amount == 0) {
-        getMyArray[this.id - 1].amount++;
+      if (enProduktArray[knappID - 1].amount == 0) {
+        getMyArray[knappID - 1].amount++;
       } else {
-        getMyArray[this.id - 1].amount = element.amount++;
+        getMyArray[knappID - 1].amount = element.amount++;
       }
       localStorage.setItem("Produkter", JSON.stringify(getMyArray));
     }
