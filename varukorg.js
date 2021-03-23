@@ -9,9 +9,11 @@ if (getMyArray != null) {
           <ul class="ll list-inline">
             <li class="list-inline-item col-3"><p>${produkt.title}</p></li>
             <li class="list-inline-item col-2">
-              <input type="number" min="1" style="width: 30%" value="${
-                produkt.amount
-              }" />
+              <input class="inputAmount" id="a${
+                produkt.id
+              }" type="number" min="1" style="width: 30%" value="${
+        produkt.amount
+      }" />
             </li>
             <li class="list-inline-item col-2"><p>${produkt.price} kr</p></li>
             <li class="list-inline-item col-2"><p>${
@@ -19,7 +21,7 @@ if (getMyArray != null) {
             } kr</p></li>
             <li class="list-inline-item col-2"><button class="btnDelete btn btn-light btn-sm" id="d${
               produkt.id
-            }">Ta bort</button></li>
+            }">Ta bort<br>alla varor</button></li>
           </ul>
         </div>
           `;
@@ -34,11 +36,17 @@ output += `
 `;
 
 document.getElementById("varukorgOutput").innerHTML = output;
-addlyssnare();
+addlyssnareKnapp();
+addlyssnareAntal();
 
-function addlyssnare() {
+function addlyssnareKnapp() {
   document.querySelectorAll(".btnDelete").forEach((item) => {
     item.addEventListener("click", deleteAllProducts);
+  });
+}
+function addlyssnareAntal() {
+  document.querySelectorAll(".inputAmount").forEach((item) => {
+    item.addEventListener("change", updateAmount);
   });
 }
 
@@ -52,6 +60,20 @@ function deleteAllProducts() {
 
       localStorage.setItem("Produkter", JSON.stringify(getMyArray));
       this.closest(".ll").remove();
+    }
+  });
+}
+
+function updateAmount(event) {
+  let getFromLS = JSON.parse(localStorage.getItem("Produkter"));
+
+  getFromLS.forEach((element) => {
+    var knappID = this.id.substring(1);
+    if (element.id == knappID) {
+      var input = Number(event.target.value);
+      getMyArray[knappID - 1].amount = input;
+
+      localStorage.setItem("Produkter", JSON.stringify(getMyArray));
     }
   });
 }
