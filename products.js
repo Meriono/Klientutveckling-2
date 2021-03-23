@@ -27,7 +27,7 @@ function load() {
         image: product.image,
         price: product.price,
         category: product.category,
-        amount: 1,
+        amount: 0,
       };
       enProduktArray.push(enProduktTillArray);
 
@@ -87,11 +87,17 @@ function addProduct() {
     <a href="form.html"><button class="btnOrder btn btn-danger text-center">Se beställning</button></a>
     </div>
       `;
-  console.log(this.id);
+
   enProduktArray.forEach((element) => {
     if (element.id == this.id) {
-      console.log(element.title + element.amount);
-      element.amount++;
+      let getMyArray = JSON.parse(localStorage.getItem("Produkter"));
+
+      if (enProduktArray[this.id - 1].amount == 0) {
+        getMyArray[this.id - 1].amount++;
+      } else {
+        getMyArray[this.id - 1].amount = element.amount++;
+      }
+      localStorage.setItem("Produkter", JSON.stringify(getMyArray));
     }
   });
 }
