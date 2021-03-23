@@ -1,10 +1,15 @@
-let output = "";
-let summa = 0;
-let getMyArray = JSON.parse(localStorage.getItem("Produkter"));
-if (getMyArray != null) {
-  getMyArray.forEach((produkt) => {
-    if (produkt.amount > 0) {
-      output += `
+$(document).ready(function () {
+  viewOrder();
+});
+
+function viewOrder() {
+  let output = "";
+  let summa = 0;
+  let getMyArray = JSON.parse(localStorage.getItem("Produkter"));
+  if (getMyArray != null) {
+    getMyArray.forEach((produkt) => {
+      if (produkt.amount > 0) {
+        output += `
           <div class="grid">
           <ul class="ll list-inline">
             <li class="list-inline-item col-3"><p>${produkt.title}</p></li>
@@ -12,8 +17,8 @@ if (getMyArray != null) {
               <input class="inputAmount" id="a${
                 produkt.id
               }" type="number" min="1" style="width: 30%" value="${
-        produkt.amount
-      }" />
+          produkt.amount
+        }" />
             </li>
             <li class="list-inline-item col-2"><p>${produkt.price} kr</p></li>
             <li class="list-inline-item col-2"><p>${
@@ -26,18 +31,19 @@ if (getMyArray != null) {
         </div>
           `;
 
-      summa += produkt.price * produkt.amount;
-    }
-  });
-}
+        summa += produkt.price * produkt.amount;
+      }
+    });
+  }
 
-output += `
+  output += `
 <h4 class="text-end" id="Totalsumma">Totalsumma: ${summa} kr</h4>
 `;
 
-document.getElementById("varukorgOutput").innerHTML = output;
-addlyssnareKnapp();
-addlyssnareAntal();
+  document.getElementById("varukorgOutput").innerHTML = output;
+  addlyssnareKnapp();
+  addlyssnareAntal();
+}
 
 function addlyssnareKnapp() {
   document.querySelectorAll(".btnDelete").forEach((item) => {
@@ -56,12 +62,13 @@ function deleteAllProducts() {
   getFromLS.forEach((element) => {
     var knappID = this.id.substring(1);
     if (element.id == knappID) {
-      getMyArray[knappID - 1].amount = 0;
+      getFromLS[knappID - 1].amount = 0;
 
-      localStorage.setItem("Produkter", JSON.stringify(getMyArray));
+      localStorage.setItem("Produkter", JSON.stringify(getFromLS));
       this.closest(".ll").remove();
     }
   });
+  viewOrder();
 }
 
 function updateAmount(event) {
@@ -71,9 +78,10 @@ function updateAmount(event) {
     var knappID = this.id.substring(1);
     if (element.id == knappID) {
       var input = Number(event.target.value);
-      getMyArray[knappID - 1].amount = input;
+      getFromLS[knappID - 1].amount = input;
 
-      localStorage.setItem("Produkter", JSON.stringify(getMyArray));
+      localStorage.setItem("Produkter", JSON.stringify(getFromLS));
     }
   });
+  viewOrder();
 }
