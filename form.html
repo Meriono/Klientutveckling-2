@@ -19,47 +19,22 @@
           <ul class="list-inline">
             <li class="list-inline-item col-3"><h4>PRODUKT</h4></li>
             <li class="list-inline-item col-2"><h4>ANTAL</h4></li>
-            <li class="list-inline-item col-2"><h4>PRIS</h4></li>
+            <li class="list-inline-item col-2"><h4>A PRIS</h4></li>
+            <li class="list-inline-item col-2"><h4>TOTAL PRIS</h4></li>
           </ul>
         </div>
-
-        <div class="grid">
-          <ul class="list-inline">
-            <li class="list-inline-item col-3"><p>PRODUKT</p></li>
-            <li class="list-inline-item col-2">
-              <input type="number" min="1" style="width: 30%" />
-            </li>
-            <li class="list-inline-item col-2"><p>PRIS kr</p></li>
-          </ul>
-        </div>
-
-        <div class="grid">
-          <ul class="list-inline">
-            <li class="list-inline-item col-3"><p>PRODUKT</p></li>
-            <li class="list-inline-item col-2">
-              <input type="number" min="1" style="width: 30%" />
-            </li>
-            <li class="list-inline-item col-2"><p>PRIS kr</p></li>
-          </ul>
-        </div>
-
-        <div class="grid">
-          <ul class="list-inline">
-            <li class="list-inline-item col-3"><p>PRODUKT</p></li>
-            <li class="list-inline-item col-2">
-              <input type="number" min="1" style="width: 30%" />
-            </li>
-            <li class="list-inline-item col-2"><p>PRIS kr</p></li>
-          </ul>
-        </div>
-        <h4 class="text-end" id="Totalsumma">Totalsumma: SUMMA kr</h4>
+        <div id="varukorgOutput"></div>
         <a href="index.html"
           ><button class="btn btn-danger">Lägg till en ny produkt</button>
         </a>
       </div>
     </div>
 
-    <div class="alert alert-success">
+    <div class="alert alert-info" id="bluebox">
+      <h4 class="text-center">Lägg till några varor för att fylla i dina kontaktuppgifter</h4>
+    </div>
+
+    <div class="alert alert-success" id="greenbox">
       <h3 class="text-center">Kontaktuppgifter</h3>
 
       <form class="row g-3 needs-validation" id="form" method="post" novalidate>
@@ -68,7 +43,7 @@
           <input
             type="text"
             class="form-control"
-            id="inputFirstNAme"
+            id="inputFirstName"
             required
           />
           <div class="invalid-feedback">Ange ditt förnamn.</div>
@@ -131,7 +106,7 @@
             <h4>Tack för din beställning!</h4>
           </div>
           <div class="text-end m-2">
-            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">
+            <button type="button" class="btn btn-dark" data-bs-dismiss="modal" onclick="closeModal()">
               Stäng
             </button>
           </div>
@@ -145,5 +120,21 @@
     ></script>
 
     <script src="validation.js"></script>
+    <script src="varukorg.js"></script>
   </body>
 </html>
+
+<!--
+
+          <div class="grid">
+          <ul class="list-inline">
+            <li class="list-inline-item col-3"><p>PRODUKT</p></li>
+            <li class="list-inline-item col-2">
+              <input type="number" min="1" style="width: 30%" value="" />
+            </li>
+            <li class="list-inline-item col-2"><p>PRIS kr</p></li>
+          </ul>
+        </div>
+
+
+-->
