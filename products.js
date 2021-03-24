@@ -1,35 +1,43 @@
+/*
+TODO:
+Beräkna ut antal produkter i varukorg, totalt. Inte bara de du vill lägga till nu
+^ de ska till amountOfProducts
+
+*/
+
 $(document).ready(function () {
   load();
 });
+let getFromLS = JSON.parse(localStorage.getItem("Produkter"));
 let enProduktArray = [];
 
 function load() {
-  const xhr = new XMLHttpRequest();
-  xhr.open("GET", "https://webacademy.se/fakestore/");
-  xhr.send();
+  if (getFromLS == null) {
+    fetch("https://webacademy.se/fakestore/")
+      .then((respone) => respone.json())
+      .then((data) => render(data))
+      .catch((err) => console.error(err));
+  } else {
+    render(getFromLS);
+  }
 
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      const json = JSON.parse(xhr.response);
-      render(json);
-    }
-  };
-
-  function render(json) {
+  function render(data) {
     let output = "";
     let columns = 0;
 
-    json.forEach((product) => {
-      const enProduktTillArray = {
-        id: product.id,
-        title: product.title,
-        description: product.description,
-        image: product.image,
-        price: product.price,
-        category: product.category,
-        amount: 0,
-      };
-      enProduktArray.push(enProduktTillArray);
+    data.forEach((product) => {
+      if (getFromLS == null) {
+        const enProduktTillArray = {
+          id: product.id,
+          title: product.title,
+          description: product.description,
+          image: product.image,
+          price: product.price,
+          category: product.category,
+          amount: 0,
+        };
+        enProduktArray.push(enProduktTillArray);
+      }
 
       if (columns % 3 === 0) {
         output += `
@@ -67,7 +75,9 @@ function load() {
     });
     document.getElementById("productsView").innerHTML = output;
     addlyssnare();
-    localStorage.setItem("Produkter", JSON.stringify(enProduktArray));
+    if (getFromLS == null) {
+      localStorage.setItem("Produkter", JSON.stringify(enProduktArray));
+    }
   }
 }
 
@@ -88,30 +98,30 @@ function addProduct() {
     </div>
       `;
 
-  enProduktArray.forEach((element) => {
-      var knappID = this.id.substring(1);
-    if (element.id == knappID) {
-      let getMyArray = JSON.parse(localStorage.getItem("Produkter"));
+  let getMyArray = JSON.parse(localStorage.getItem("Produkter"));
 
-      if (enProduktArray[knappID - 1].amount == 0) {
+  getMyArray.forEach((element) => {
+    var knappID = this.id.substring(1);
+    if (element.id == knappID) {
+      if (getMyArray[knappID - 1].amount == 0) {
         getMyArray[knappID - 1].amount++;
       } else {
-        getMyArray[knappID - 1].amount = element.amount++;
+        getMyArray[knappID - 1].amount += element.amount++;
       }
       localStorage.setItem("Produkter", JSON.stringify(getMyArray));
     }
   });
 }
 
+function testin() {
+  let getFromLS = JSON.parse(localStorage.getItem("Produkter"));
+  if (getFromLS == null) {
+  } else {
+  }
 
-
-
-/*
-id
-title
-description
-image
-price
-category
-amount
-*/
+  if (localStorage.getItem("Produkter") === null) {
+    console.log("Den finns inte");
+  } else {
+    console.log("Den finns");
+  }
+}
