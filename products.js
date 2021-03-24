@@ -1,10 +1,3 @@
-/*
-TODO:
-Beräkna ut antal produkter i varukorg, totalt. Inte bara de du vill lägga till nu
-^ de ska till amountOfProducts
-
-*/
-
 $(document).ready(function () {
   load();
 });
@@ -73,10 +66,12 @@ function load() {
       }
       columns++;
     });
+
     document.getElementById("productsView").innerHTML = output;
     addlyssnare();
     if (getFromLS == null) {
       localStorage.setItem("Produkter", JSON.stringify(enProduktArray));
+      addToCart();
     }
   }
 }
@@ -87,41 +82,36 @@ function addlyssnare() {
   });
 }
 
-let amountOfProducts = 0;
-
 function addProduct() {
-  amountOfProducts++;
-  document.getElementById("orderProducts").innerHTML = `
-    <h2 class="text-center text">Antal varor du vill beställa: ${amountOfProducts}</h2>
-    <div class="mx-auto text-center">
-    <a href="form.html"><button class="btnOrder btn btn-danger text-center">Se beställning</button></a>
-    </div>
-      `;
-
   let getMyArray = JSON.parse(localStorage.getItem("Produkter"));
 
   getMyArray.forEach((element) => {
     var knappID = this.id.substring(1);
     if (element.id == knappID) {
-      if (getMyArray[knappID - 1].amount == 0) {
-        getMyArray[knappID - 1].amount++;
-      } else {
-        getMyArray[knappID - 1].amount += element.amount++;
-      }
+      console.log("Plus ett");
+
+      getMyArray[knappID - 1].amount++;
+
       localStorage.setItem("Produkter", JSON.stringify(getMyArray));
     }
   });
+  addToCart();
 }
 
-function testin() {
-  let getFromLS = JSON.parse(localStorage.getItem("Produkter"));
-  if (getFromLS == null) {
+function addToCart() {
+  let getVarukorg = localStorage.getItem("Varukorg");
+  if (getVarukorg === null) {
+    localStorage.setItem("Varukorg", 0);
+    getVarukorg = localStorage.getItem("Varukorg");
   } else {
+    getVarukorg++;
+    localStorage.setItem("Varukorg", getVarukorg);
   }
 
-  if (localStorage.getItem("Produkter") === null) {
-    console.log("Den finns inte");
-  } else {
-    console.log("Den finns");
-  }
+  document.getElementById("orderProducts").innerHTML = `
+    <h2 class="text-center text">Antal varor du vill beställa: ${getVarukorg}</h2>
+    <div class="mx-auto text-center">
+    <a href="form.html"><button class="btnOrder btn btn-danger text-center">Se beställning</button></a>
+    </div>
+      `;
 }

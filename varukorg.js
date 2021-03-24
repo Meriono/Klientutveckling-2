@@ -83,5 +83,19 @@ function updateAmount(event) {
       localStorage.setItem("Produkter", JSON.stringify(getFromLS));
     }
   });
+  updateVarukorgAmount();
   viewOrder();
+}
+
+function updateVarukorgAmount() {
+  let getMyArray = JSON.parse(localStorage.getItem("Produkter"));
+  let summa = 0;
+  if (getMyArray != null) {
+    getMyArray.forEach((produkt) => {
+      if (produkt.amount > 0) {
+        summa += produkt.amount;
+      }
+    });
+  }
+  localStorage.setItem("Varukorg", summa);
 }
