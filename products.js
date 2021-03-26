@@ -66,7 +66,6 @@ function load() {
       }
       columns++;
     });
-
     document.getElementById("productsView").innerHTML = output;
     addlyssnare();
     if (getFromLS == null) {
@@ -88,8 +87,6 @@ function addProduct() {
   getMyArray.forEach((element) => {
     var knappID = this.id.substring(1);
     if (element.id == knappID) {
-      console.log("Plus ett");
-
       getMyArray[knappID - 1].amount++;
 
       localStorage.setItem("Produkter", JSON.stringify(getMyArray));

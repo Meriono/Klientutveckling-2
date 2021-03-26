@@ -31,56 +31,53 @@
     </div>
 
     <div class="alert alert-info" id="bluebox">
-      <h4 class="text-center">Lägg till några varor för att fylla i dina kontaktuppgifter</h4>
+      <h4 class="text-center">
+        Lägg till några varor för att fylla i dina kontaktuppgifter
+      </h4>
     </div>
 
     <div class="alert alert-success" id="greenbox">
       <h3 class="text-center">Kontaktuppgifter</h3>
 
-      <form class="row g-3 needs-validation" id="form" method="post" novalidate>
+      <form
+        class="row g-3 needs-validation"
+        id="formSubmit"
+        method="post"
+        onsubmit="return validateForm()"
+      >
         <div class="col-md-2">
-          <label for="inputFirstName" class="form-label">Förnamn</label>
-          <input
-            type="text"
-            class="form-control"
-            id="inputFirstName"
-            required
-          />
+          <label for="firstname" class="form-label">Förnamn</label>
+          <input type="text" class="form-control" id="firstname" />
           <div class="invalid-feedback">Ange ditt förnamn.</div>
         </div>
         <div class="col-md-3">
-          <label for="inputLastName" class="form-label">Efternamn</label>
-          <input type="text" class="form-control" id="inputLastName" required />
+          <label for="lastname" class="form-label">Efternamn</label>
+          <input type="text" class="form-control" id="lastname" />
           <div class="invalid-feedback">Ange ditt efternamn.</div>
         </div>
         <div class="col-md-3">
-          <label for="inputPhoneNumber" class="form-label">Telefon</label>
-          <input
-            type="text"
-            class="form-control"
-            id="inputPhoneNumber"
-            required
-          />
+          <label for="phonenumber" class="form-label">Telefon</label>
+          <input type="text" class="form-control" id="phonenumber" />
           <div class="invalid-feedback">Ange ditt telefonnummer.</div>
         </div>
         <div class="col-4">
-          <label for="inputAddress" class="form-label">E-post</label>
-          <input type="email" class="form-control" id="inputAddress" required />
+          <label for="email" class="form-label">E-post</label>
+          <input type="email" class="form-control" id="email" />
           <div class="invalid-feedback">Ange din e-post.</div>
         </div>
         <div class="col-6">
-          <label for="inputAddress2" class="form-label">Leveransadress</label>
-          <input type="text" class="form-control" id="inputAddress2" required />
+          <label for="address" class="form-label">Leveransadress</label>
+          <input type="text" class="form-control" id="address" />
           <div class="invalid-feedback">Ange din leveransadress.</div>
         </div>
         <div class="col-md-3">
-          <label for="inputCity" class="form-label">Ort</label>
-          <input type="text" class="form-control" id="inputCity" required />
+          <label for="city" class="form-label">Ort</label>
+          <input type="text" class="form-control" id="city" />
           <div class="invalid-feedback">Ange din ort.</div>
         </div>
         <div class="col-md-2">
-          <label for="inputZip" class="form-label">Portnummer</label>
-          <input type="text" class="form-control" id="inputZip" required />
+          <label for="zip" class="form-label">Portnummer</label>
+          <input type="text" class="form-control" id="zip" />
           <div class="invalid-feedback">Ange ditt postnummer.</div>
         </div>
         <br />
@@ -106,7 +103,12 @@
             <h4>Tack för din beställning!</h4>
           </div>
           <div class="text-end m-2">
-            <button type="button" class="btn btn-dark" data-bs-dismiss="modal" onclick="closeModal()">
+            <button
+              type="button"
+              class="btn btn-dark"
+              data-bs-dismiss="modal"
+              onclick="closeModal()"
+            >
               Stäng
             </button>
           </div>
@@ -127,18 +129,3 @@
     <script src="varukorg.js"></script>
   </body>
 </html>
-
-<!--
-
-          <div class="grid">
-          <ul class="list-inline">
-            <li class="list-inline-item col-3"><p>PRODUKT</p></li>
-            <li class="list-inline-item col-2">
-              <input type="number" min="1" style="width: 30%" value="" />
-            </li>
-            <li class="list-inline-item col-2"><p>PRIS kr</p></li>
-          </ul>
-        </div>
-
-
--->
