@@ -4,6 +4,9 @@ if (localStorage.length == 0) {
   document.getElementById("bluebox").style.display = "none";
 }
 
+const form = document.getElementById("formSubmit");
+form.addEventListener("submit", openModal);
+
 function validateForm() {
   let errors;
 
@@ -38,13 +41,15 @@ function validateForm() {
   function valid(element) {
     element.classList.remove("is-invalid");
   }
+
   return errors > 0 ? false : true;
 }
 
-function openModal() {
+function openModal(event) {
   var myModalEl = document.getElementById("staticBackdrop");
   var modal = new bootstrap.Modal(myModalEl); // Returns a Bootstrap modal instance
   modal.show();
+  event.preventDefault();
 }
 
 function closeModal() {
