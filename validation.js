@@ -7,7 +7,6 @@ if (localStorage.length == 0) {
 function validateForm() {
   let errors;
 
-  // Form Elements
   let firstname = document.querySelector("#firstname");
   let lastname = document.querySelector("#lastname");
   let phonenumber = document.querySelector("#phonenumber");
@@ -16,22 +15,22 @@ function validateForm() {
   let city = document.querySelector("#city");
   let zip = document.querySelector("#zip");
 
-  // Regular Expressions
-  let alpha = /^[a-z]+$/i;
+  let textValidation = /^[a-z]+$/i;
+  let numberValidation = /^[0-9]+$/i;
   let emailValidation = /^[a-z0-9._%+-]{1,64}@[a-z0-9.-]{1,252}\.[a-z]{2,3}$/i;
 
   errors = 0;
 
-  // Textboxes
-  alpha.test(firstname.value) ? valid(firstname) : invalid(firstname);
-  alpha.test(lastname.value) ? valid(lastname) : invalid(lastname);
-  alpha.test(phonenumber.value) ? valid(phonenumber) : invalid(phonenumber);
-  alpha.test(address.value) ? valid(address) : invalid(address);
-  alpha.test(city.value) ? valid(city) : invalid(city);
-  alpha.test(zip.value) ? valid(zip) : invalid(zip);
+  textValidation.test(firstname.value) ? valid(firstname) : invalid(firstname);
+  textValidation.test(lastname.value) ? valid(lastname) : invalid(lastname);
+  numberValidation.test(phonenumber.value)
+    ? valid(phonenumber)
+    : invalid(phonenumber);
+  textValidation.test(address.value) ? valid(address) : invalid(address);
+  textValidation.test(city.value) ? valid(city) : invalid(city);
+  numberValidation.test(zip.value) ? valid(zip) : invalid(zip);
   emailValidation.test(email.value) ? valid(email) : invalid(email);
 
-  // Validation Helpers
   function invalid(element) {
     element.classList.add("is-invalid");
     errors++;
