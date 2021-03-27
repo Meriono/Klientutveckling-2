@@ -18,7 +18,7 @@ function viewOrder() {
                 produkt.id
               }" type="number" min="1" style="width: 30%" value="${
           produkt.amount
-        }" />
+        }" oninput="this.value = Math.abs(this.value)"/>
             </li>
             <li class="list-inline-item col-2"><p>${produkt.price} kr</p></li>
             <li class="list-inline-item col-2"><p>${
