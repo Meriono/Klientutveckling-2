@@ -46,10 +46,12 @@ function validateForm() {
 }
 
 function openModal(event) {
-  var myModalEl = document.getElementById("staticBackdrop");
-  var modal = new bootstrap.Modal(myModalEl); // Returns a Bootstrap modal instance
-  modal.show();
-  event.preventDefault();
+  if (validateForm() == true) {
+    var myModalEl = document.getElementById("staticBackdrop");
+    var modal = new bootstrap.Modal(myModalEl); // Returns a Bootstrap modal instance
+    modal.show();
+    event.preventDefault();
+  }
 }
 
 function closeModal() {
