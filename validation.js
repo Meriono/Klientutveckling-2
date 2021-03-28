@@ -1,4 +1,4 @@
-if (localStorage.length == 0) {
+if (JSON.parse(localStorage.getItem("Varukorg")) == 0) {
   document.getElementById("greenbox").style.display = "none";
 } else {
   document.getElementById("bluebox").style.display = "none";
